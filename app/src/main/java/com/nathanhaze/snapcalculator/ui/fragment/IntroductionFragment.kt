@@ -1,12 +1,14 @@
 package com.nathanhaze.snapcalculator.ui.fragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.nathanhaze.snapcalculator.R
+import com.nathanhaze.snapcalculator.databinding.FragmentIntroductionBinding
 import com.nathanhaze.snapcalculator.ui.fragment.viewmodel.IntroductionViewModel
 
 class IntroductionFragment : Fragment() {
@@ -21,7 +23,15 @@ class IntroductionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_introduction, container, false)
+
+        val binding = FragmentIntroductionBinding.inflate(inflater, container, false)
+
+        binding.btnNext.setOnClickListener {
+            val navController =
+                requireActivity().findNavController(R.id.nav_host_fragment_content_single)
+            navController.navigate(R.id.TerminalFragment)
+        }
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
