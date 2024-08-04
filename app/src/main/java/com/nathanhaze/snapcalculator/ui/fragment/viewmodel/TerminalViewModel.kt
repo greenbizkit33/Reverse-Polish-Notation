@@ -11,9 +11,9 @@ class TerminalViewModel : ViewModel() {
     val terminalOutputList: LiveData<ArrayList<String>>
         get() = _terminalOutputList
 
-    private val _terminalOutputError = MutableLiveData<Exception>(null)
+    private val _terminalOutputError = MutableLiveData<Exception?>(null)
 
-    val terminalOutputError: LiveData<Exception>
+    val terminalOutputError: LiveData<Exception?>
         get() = _terminalOutputError
 
 
@@ -27,6 +27,9 @@ class TerminalViewModel : ViewModel() {
             _terminalOutputError.postValue(ex)
             return false
         }
+
+        _terminalOutputError.value = null
+        _terminalOutputError.postValue(null)
 
         output?.let { newValue ->
             stackIt(newValue)
