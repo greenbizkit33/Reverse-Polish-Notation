@@ -18,14 +18,15 @@ class TerminalViewModel : ViewModel() {
 
 
     fun addToStack(userInput: String): Boolean {
+        var output: String?
         try {
             PolishNotationUtil.isValidInput(userInput)
+            output = PolishNotationUtil.addToPolishNotationStack(userInput)
         } catch (ex: Exception) {
             _terminalOutputError.value = ex
             _terminalOutputError.postValue(ex)
             return false
         }
-        var output = PolishNotationUtil.addToPolishNotationStack(userInput)
 
         output?.let { newValue ->
             stackIt(newValue)
