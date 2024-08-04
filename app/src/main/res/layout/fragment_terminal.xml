@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,47 +9,73 @@
     android:orientation="vertical"
     tools:context=".ui.activity.fragment.TerminalFragment">
 
+    <ImageButton
+        android:id="@+id/ib_help"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:padding="12dp"
+        android:src="@drawable/icon_help" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_terminal_input"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
-        android:layout_weight="1" />
-
-    <TextView
-        android:id="@+id/tv_error_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/error_background"
-        android:textColor="@color/white"
-        android:visibility="gone" />
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_error_message"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_arrow" />
+            android:layout_marginEnd="411dp"
+            android:layout_marginBottom="731dp"
+            android:background="@color/error_background"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/ll_bottom_controls"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
 
-        <EditText
-            android:id="@+id/et_user_terminal_input"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:maxLines="1"
-            android:textColor="@color/terminal_font" />
-
-        <Button
-            android:id="@+id/btn_terminal_enter"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll_bottom_controls"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="@string/btn_terminal_send"
-            android:textColor="@color/terminal_font" />
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_arrow" />
+
+            <EditText
+                android:id="@+id/et_user_terminal_input"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:textColor="@color/terminal_font" />
+
+            <Button
+                android:id="@+id/btn_terminal_enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/btn_terminal_send"
+                android:textColor="@color/terminal_font" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

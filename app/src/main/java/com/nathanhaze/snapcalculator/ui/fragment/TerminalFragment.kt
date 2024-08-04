@@ -44,9 +44,6 @@ class TerminalFragment : Fragment() {
                 return@setOnClickListener
             }
             userInput = userInput.trim()
-//            if (userInput == "q") {
-//                requireActivity().finish()
-//            }
 
             when (userInput.lowercase()) {
                 "q" -> requireActivity().finish()
@@ -85,9 +82,13 @@ class TerminalFragment : Fragment() {
             }
         }
 
-        val navController =
-            requireActivity().findNavController(R.id.nav_host_fragment_content_single)
-        navController.navigate(R.id.IntroductionFragment)
+        binding.ibHelp.setOnClickListener{
+            val navController =
+                requireActivity().findNavController(R.id.nav_host_fragment_content_single)
+            navController.navigate(R.id.IntroductionFragment)
+        }
+
+
 
         return binding.root
     }

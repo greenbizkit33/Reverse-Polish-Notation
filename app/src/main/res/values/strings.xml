@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Snap Calculator</string>
     <string name="title_activity_single">SingleActivity</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Introduction</string>
     <string name="second_fragment_label">Terminal</string>
+
+
+    <string name="instructions">You can only use these math operators: + - * \n
+        Here is some commands: \n
+        /"stack/" -> Display the current stack \n
+        /"q/" -> To leave the app \n
+        /"clear/" -> To clear the stack </string>
+
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
