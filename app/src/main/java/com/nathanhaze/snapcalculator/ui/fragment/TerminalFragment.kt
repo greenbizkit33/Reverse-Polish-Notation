@@ -49,6 +49,7 @@ class TerminalFragment : Fragment() {
                 "q" -> requireActivity().finish()
                 "clear" -> viewModel.clearStacks().run { binding.etUserTerminalInput.text.clear() }
                 "stack" -> viewModel.displayStack().run { binding.etUserTerminalInput.text.clear() }
+                "pop" -> viewModel.popStack().run { binding.etUserTerminalInput.text.clear() }
                 else -> {
                     val added = viewModel.addToStack(userInput = userInput)
                     if (added) {
@@ -82,7 +83,7 @@ class TerminalFragment : Fragment() {
             }
         }
 
-        binding.ibHelp.setOnClickListener{
+        binding.ibHelp.setOnClickListener {
             val navController =
                 requireActivity().findNavController(R.id.nav_host_fragment_content_single)
             navController.navigate(R.id.IntroductionFragment)

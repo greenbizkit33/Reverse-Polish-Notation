@@ -16,6 +16,10 @@ object PolishNotationUtil {
         return stack;
     }
 
+    fun popStack(): Float? {
+        return stack.removeLastOrNull()
+    }
+
     fun addToPolishNotationStack(input: String): String? {
         if (input.isDigitsOnly()) {
             stack.addLast(input.toFloat())
@@ -45,10 +49,6 @@ object PolishNotationUtil {
             Log.d("nathanx", "stack size  ${stack.size} ")
             return stack.last().toString()
         }
-//        } else {
-//            throw InvalidMathOperation()
-//        }
-        return null
     }
 
 //    fun calculateInput(list: List<String>): Int {

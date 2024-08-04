@@ -7,9 +7,10 @@
 
     <string name="instructions">You can only use these math operators: + - * \n
         Here is some commands: \n
-        /"stack/" -> Display the current stack \n
-        /"q/" -> To leave the app \n
-        /"clear/" -> To clear the stack </string>
+        \"stack\" -> Display the current stack \n
+        \"q\" -> To leave the app \n
+        \"clear\" -> To clear the stack \n
+        \"pop\" -> Remove the last number \n</string>
 
     <string name="next">Next</string>
     <string name="previous">Previous</string>

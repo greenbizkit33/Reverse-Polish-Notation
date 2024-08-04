@@ -57,6 +57,13 @@ class TerminalViewModel : ViewModel() {
         _terminalOutputList.postValue(_terminalOutputList.value)
     }
 
+    fun popStack() {
+        val popStackNumber = PolishNotationUtil.popStack()
+        popStackNumber?.let { _terminalOutputList.value?.add("Removed $popStackNumber ") }
+            ?: _terminalOutputList.value?.add("Nothing to pop")
+        _terminalOutputList.postValue(_terminalOutputList.value)
+    }
+
 
     class AlphabeticSymbol : Exception("")
 }
