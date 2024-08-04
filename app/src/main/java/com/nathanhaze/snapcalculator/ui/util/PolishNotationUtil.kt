@@ -8,6 +8,14 @@ object PolishNotationUtil {
 
     private val stack = ArrayDeque<Float>()
 
+    fun clearStack() {
+        stack.clear()
+    }
+
+    fun getStack(): ArrayDeque<Float> {
+        return stack;
+    }
+
     fun addToPolishNotationStack(input: String): String? {
         if (input.isDigitsOnly()) {
             stack.addLast(input.toFloat())

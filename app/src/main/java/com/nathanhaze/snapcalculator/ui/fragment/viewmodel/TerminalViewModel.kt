@@ -33,27 +33,27 @@ class TerminalViewModel : ViewModel() {
             stackIt(userInput)
         }
 
-//
-//        if (userInput.isDigitsOnly()) {
-//            _terminalOutputList.value?.let { stack ->
-//                stackIt(userInput)
-//                PolishNotationUtil.addToPolishNotationStack(userInput)
-//                return true
-//            }
-//        }
-//
-//        PolishNotationUtil.addToPolishNotationStack(userInput)
-//        val calculatedNumber = PolishNotationUtil.calculateInput()
-//        Log.d("nathanx", "calculated Number: $calculatedNumber")
-//        stackIt(calculatedNumber.toString())
-//
-//        Log.d("nathanx", "input $userInput")
-
         return true
+    }
+
+    fun clearStacks() {
+        PolishNotationUtil.clearStack()
+        _terminalOutputList.value?.clear()
+        _terminalOutputList.postValue(_terminalOutputList.value)
     }
 
     fun stackIt(input: String) {
         _terminalOutputList.value?.add(input)
+        _terminalOutputList.postValue(_terminalOutputList.value)
+    }
+
+    fun displayStack() {
+        _terminalOutputList.value?.add("---- Stack ----")
+        val stack = PolishNotationUtil.getStack()
+        for (item in stack) {
+            _terminalOutputList.value?.add(item.toString())
+        }
+        _terminalOutputList.value?.add("---- Done ----")
         _terminalOutputList.postValue(_terminalOutputList.value)
     }
 

@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nathanhaze.snapcalculator.R
 import com.nathanhaze.snapcalculator.databinding.FragmentTerminalBinding
 import com.nathanhaze.snapcalculator.ui.adapter.TerminalAdapter
 import com.nathanhaze.snapcalculator.ui.fragment.viewmodel.TerminalViewModel
+
 
 class TerminalFragment : Fragment() {
 
@@ -41,21 +44,34 @@ class TerminalFragment : Fragment() {
                 return@setOnClickListener
             }
             userInput = userInput.trim()
-            if (userInput == "q") {
-                requireActivity().finish()
+//            if (userInput == "q") {
+//                requireActivity().finish()
+//            }
+
+            when (userInput.lowercase()) {
+                "q" -> requireActivity().finish()
+                "clear" -> viewModel.clearStacks().run { binding.etUserTerminalInput.text.clear() }
+                "stack" -> viewModel.displayStack().run { binding.etUserTerminalInput.text.clear() }
+                else -> {
+                    val added = viewModel.addToStack(userInput = userInput)
+                    if (added) {
+                        binding.etUserTerminalInput.text.clear()
+                    }
+                }
             }
-            val added = viewModel.addToStack(userInput = userInput)
-            if (added) {
-                binding.etUserTerminalInput.text.clear()
-            }
+
         }
 
         viewModel.terminalOutputList.observe(viewLifecycleOwner) {
             terminalAdapter.setData(it)
-            Log.d("nathanx", "got the observer ${it.size}")
-            val position = it.size
-            terminalAdapter.notifyItemInserted(position);
-            binding.rvTerminalInput.smoothScrollToPosition(position)
+            if (it.isEmpty()) {
+                terminalAdapter.notifyDataSetChanged()
+            } else {
+                Log.d("nathanx", "got the observer ${it.size}")
+                val position = it.size
+                terminalAdapter.notifyItemInserted(position);
+                binding.rvTerminalInput.smoothScrollToPosition(position)
+            }
 
         }
 
@@ -68,6 +84,11 @@ class TerminalFragment : Fragment() {
                 binding.tvErrorMessage.text = ""
             }
         }
+
+        val navController =
+            requireActivity().findNavController(R.id.nav_host_fragment_content_single)
+        navController.navigate(R.id.IntroductionFragment)
+
         return binding.root
     }
 
