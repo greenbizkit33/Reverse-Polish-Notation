@@ -58,7 +58,7 @@ object PolishNotationUtil {
     fun isValidInput(inputExpression: String): Boolean {
         if (Pattern.compile("[A-Za-z]").matcher(inputExpression).find()) {
             throw InvalidInput()
-        } else if (!Pattern.compile("[-+*/()0-9]").matcher(inputExpression).find()) {
+        } else if (!Pattern.compile("[-+*/0-9]").matcher(inputExpression).find()) {
             throw InvalidInput()
         }
         return true
