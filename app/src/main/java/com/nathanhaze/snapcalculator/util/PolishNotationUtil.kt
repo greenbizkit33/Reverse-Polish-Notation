@@ -1,4 +1,4 @@
-package com.nathanhaze.snapcalculator.ui.util
+package com.nathanhaze.snapcalculator.util
 
 import androidx.core.text.isDigitsOnly
 import java.util.regex.Pattern

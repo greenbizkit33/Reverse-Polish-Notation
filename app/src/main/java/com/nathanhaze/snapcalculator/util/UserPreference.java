@@ -1,4 +1,4 @@
-package com.nathanhaze.snapcalculator.ui.util;
+package com.nathanhaze.snapcalculator.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;

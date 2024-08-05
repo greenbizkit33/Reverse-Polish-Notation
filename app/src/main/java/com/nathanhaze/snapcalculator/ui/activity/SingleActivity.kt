@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import com.nathanhaze.snapcalculator.R
 import com.nathanhaze.snapcalculator.databinding.ActivitySingleBinding
-import com.nathanhaze.snapcalculator.ui.util.UserPreference
+import com.nathanhaze.snapcalculator.util.UserPreference
 
 
 class SingleActivity : AppCompatActivity() {

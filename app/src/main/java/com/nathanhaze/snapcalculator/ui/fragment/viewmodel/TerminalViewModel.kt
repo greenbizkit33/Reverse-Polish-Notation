@@ -3,7 +3,7 @@ package com.nathanhaze.snapcalculator.ui.fragment.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nathanhaze.snapcalculator.ui.util.PolishNotationUtil
+import com.nathanhaze.snapcalculator.util.PolishNotationUtil
 
 class TerminalViewModel : ViewModel() {
     private val _terminalOutputList = MutableLiveData<ArrayList<String>>(arrayListOf())
