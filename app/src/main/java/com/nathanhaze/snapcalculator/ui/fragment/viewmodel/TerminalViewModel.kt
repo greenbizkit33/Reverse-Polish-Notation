@@ -1,5 +1,6 @@
 package com.nathanhaze.snapcalculator.ui.fragment.viewmodel
 
+import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,7 +33,12 @@ class TerminalViewModel : ViewModel() {
         _terminalOutputError.postValue(null)
 
         output?.let { newValue ->
-            stackIt(newValue)
+            if (newValue.endsWith(".0")) {
+                stackIt(newValue.dropLast(2))
+            } else {
+                stackIt(newValue)
+
+            }
         } ?: run {
             stackIt(userInput)
         }
