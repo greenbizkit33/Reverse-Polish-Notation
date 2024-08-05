@@ -1,7 +1,6 @@
-package com.nathanhaze.snapcalculator.ui.activity.fragment
+package com.nathanhaze.snapcalculator.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,14 +20,10 @@ class TerminalFragment : Fragment() {
 
     private val viewModel: TerminalViewModel by activityViewModels()
 
-    companion object {
-        fun newInstance() = TerminalFragment()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentTerminalBinding.inflate(inflater, container, false)
 
@@ -65,9 +60,8 @@ class TerminalFragment : Fragment() {
             if (it.isEmpty()) {
                 terminalAdapter.notifyDataSetChanged()
             } else {
-                Log.d("nathanx", "got the observer ${it.size}")
                 val position = it.size
-                terminalAdapter.notifyItemInserted(position);
+                terminalAdapter.notifyItemInserted(position)
                 binding.rvTerminalInput.smoothScrollToPosition(position)
             }
 
@@ -88,8 +82,6 @@ class TerminalFragment : Fragment() {
                 requireActivity().findNavController(R.id.nav_host_fragment_content_single)
             navController.navigate(R.id.IntroductionFragment)
         }
-
-
 
         return binding.root
     }

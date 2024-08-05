@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/TerminalFragment"
-        android:name="com.nathanhaze.snapcalculator.ui.activity.fragment.TerminalFragment"
+        android:name="com.nathanhaze.snapcalculator.ui.fragment.TerminalFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_terminal">
 

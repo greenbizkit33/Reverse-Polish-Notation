@@ -1,7 +1,6 @@
 package com.nathanhaze.snapcalculator.ui.activity
 
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -22,8 +21,6 @@ class SingleActivity : AppCompatActivity() {
         binding = ActivitySingleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-
         val navController = findNavController(R.id.nav_host_fragment_content_single)
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
@@ -32,9 +29,9 @@ class SingleActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_single)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = findNavController(R.id.nav_host_fragment_content_single)
+//        return navController.navigateUp(appBarConfiguration)
+//                || super.onSupportNavigateUp()
+//    }
 }

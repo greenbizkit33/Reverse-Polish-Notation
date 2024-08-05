@@ -1,6 +1,5 @@
 package com.nathanhaze.snapcalculator.ui.fragment.viewmodel
 
-import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,9 +16,8 @@ class TerminalViewModel : ViewModel() {
     val terminalOutputError: LiveData<Exception?>
         get() = _terminalOutputError
 
-
     fun addToStack(userInput: String): Boolean {
-        var output: String?
+        val output: String?
         try {
             PolishNotationUtil.isValidInput(userInput)
             output = PolishNotationUtil.addToPolishNotationStack(userInput)
@@ -52,7 +50,7 @@ class TerminalViewModel : ViewModel() {
         _terminalOutputList.postValue(_terminalOutputList.value)
     }
 
-    fun stackIt(input: String) {
+    private fun stackIt(input: String) {
         _terminalOutputList.value?.add(input)
         _terminalOutputList.postValue(_terminalOutputList.value)
     }
@@ -73,7 +71,4 @@ class TerminalViewModel : ViewModel() {
             ?: _terminalOutputList.value?.add("Nothing to pop")
         _terminalOutputList.postValue(_terminalOutputList.value)
     }
-
-
-    class AlphabeticSymbol : Exception("")
 }
