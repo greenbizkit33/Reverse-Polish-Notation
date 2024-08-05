@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.nathanhaze.snapcalculator.R
 import com.nathanhaze.snapcalculator.databinding.ActivitySingleBinding
+import com.nathanhaze.snapcalculator.ui.util.UserPreference
 
 
 class SingleActivity : AppCompatActivity() {
@@ -25,6 +26,10 @@ class SingleActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_content_single)
         appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        if (UserPreference.getInstance(this).isFirstTimeUser) {
+            navController.navigate(R.id.IntroductionFragment)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import com.nathanhaze.snapcalculator.R
 import com.nathanhaze.snapcalculator.databinding.FragmentIntroductionBinding
 import com.nathanhaze.snapcalculator.ui.fragment.viewmodel.IntroductionViewModel
+import com.nathanhaze.snapcalculator.ui.util.UserPreference
 
 class IntroductionFragment : Fragment() {
 
@@ -31,6 +32,8 @@ class IntroductionFragment : Fragment() {
                 requireActivity().findNavController(R.id.nav_host_fragment_content_single)
             navController.navigate(R.id.TerminalFragment)
         }
+
+        UserPreference.getInstance(requireActivity()).isFirstTimeUser = false
         return binding.root
     }
 
