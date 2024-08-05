@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
+        android:fontFamily="@font/terminal_day"
         android:text="@string/app_name"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/tv_instructions"
@@ -22,6 +23,7 @@
         android:id="@+id/tv_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/terminal_day"
         android:layout_below="@id/tv_app_title"
         android:layout_marginTop="24dp"
         android:text="@string/instructions" />

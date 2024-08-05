@@ -67,6 +67,7 @@
                 android:id="@+id/btn_terminal_enter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/terminal_day"
                 android:background="@android:color/transparent"
                 android:text="@string/btn_terminal_send"
                 android:textColor="@color/terminal_font" />
