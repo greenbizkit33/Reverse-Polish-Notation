@@ -1,4 +1,8 @@
 # Reverse-Polish-Notation
+<p float="left">
+  <img src="https://github.com/greenbizkit33/Reverse-Polish-Notation/blob/main/screenshots/Screenshot_20240805_105620.png" width="185" />
+  <img src="https://github.com/greenbizkit33/Reverse-Polish-Notation/blob/main/screenshots/Screenshot_20240805_105913.png" width="185" /> 
+</p>
 
 ## Solution
 I used a stack to solve for Reverse Polish Notation (RPN) equations. A user can keep stacking numbers on to the stack till it hits a math operator (+, - *, /). When it hits a math operator it will pop off the last two numbers from the stack then set that as the top value. This new top number will be displayed to the user. If there is more than 2 numbers on the stack the user can keep adding math operators or adding numbers. Since Kotlin does not have a stack class, I chose to use a ArrayDeque. 
