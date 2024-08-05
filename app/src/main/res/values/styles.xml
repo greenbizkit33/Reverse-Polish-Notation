@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Button">
+        <item name="android:textColor">@color/terminal_font</item>
+        <item name="android:fontFamily">@font/terminal_day</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+</resources>

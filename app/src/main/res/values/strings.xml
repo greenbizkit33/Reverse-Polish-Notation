@@ -15,6 +15,6 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="btn_terminal_send">Send</string>
+    <string name="btn_terminal_send">Enter</string>
 
 </resources>
